@@ -1,10 +1,7 @@
-
 function loadProducts() {
   const output = document.getElementById('output');
-  output.textContent = "Simulando carga de productos...
-";
+  output.textContent = "Simulando carga de productos...\n";
 
-  // Aquí puedes agregar tu lógica para consumir una API pública o simular resultados
   setTimeout(() => {
     const exampleProducts = [
       { nombre: "Maceta DOBO 1", precio: "$5.000" },
