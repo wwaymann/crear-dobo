@@ -1,6 +1,6 @@
 function loadProducts() {
   const output = document.getElementById('output');
-  output.textContent = "Simulando carga de productos...\n";
+  output.textContent = "Simulandoo carga de productos...\n";
 
   setTimeout(() => {
     const exampleProducts = [
