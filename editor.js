@@ -1,17 +1,16 @@
-require('dotenv').config();
-const axios = require('axios');
 
-const WIX_API_KEY = process.env.WIX_API_KEY;
-const WIX_API_URL = 'https://www.wix.com/_api/wix-sm/v1/products';
+function loadProducts() {
+  const output = document.getElementById('output');
+  output.textContent = "Simulando carga de productos...
+";
 
-axios.get(WIX_API_URL, {
-  headers: {
-    Authorization: WIX_API_KEY
-  }
-})
-.then((response => {
-  console.log('Productos:', response.data);
-})
-.catch(error => {
-  console.error('Error obteniendo los productos:', error);
-});
+  // Aquí puedes agregar tu lógica para consumir una API pública o simular resultados
+  setTimeout(() => {
+    const exampleProducts = [
+      { nombre: "Maceta DOBO 1", precio: "$5.000" },
+      { nombre: "Maceta DOBO 2", precio: "$6.500" },
+      { nombre: "Maceta DOBO Edición Especial", precio: "$7.200" }
+    ];
+    output.textContent = exampleProducts.map(p => `• ${p.nombre} - ${p.precio}`).join('\n');
+  }, 1000);
+}
