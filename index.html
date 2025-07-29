@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Editor DOBO</title>
+  <meta charset="UTF-8" />
+  <title>Productos DOBO</title>
   <style>
     body {
-      font-family: sans-serif;
-      padding: 2em;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
-  <h1>Editor de productos DOBO</h1>
-  <p>Haz clic para cargar los productos desde la API de Wix:</p>
+  <h1>Consulta de productos DOBO</h1>
   <button onclick="loadProducts()">Cargar productos</button>
-  <pre id="output"></pre>
+  <pre id="output">Haz clic en el botón para cargar los productos.</pre>
 
   <script>
     async function loadProducts() {
       const output = document.getElementById('output');
-      output.textContent = "Cargando...";
-      
+      output.textContent = 'Cargando productos...';
+
       try {
-        const response = await fetch('https://tu-servidor.com/api/products');
+        const response = await fetch('http://localhost:3000/api/products');
         const data = await response.json();
         output.textContent = JSON.stringify(data, null, 2);
-      } catch (err) {
-        output.textContent = "Error: " + err.message;
+      } catch (error) {
+        output.textContent = 'Error: ' + error.message;
       }
     }
   </script>
 </body>
 </html>
+
